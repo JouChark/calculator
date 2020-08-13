@@ -5,28 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quantico:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <main id="calculator">
-            <input type="text" id="display" placeholder="" maxlength="5" disabled>
-            <button class="button" value="0">0</button>
-            <button class="button" value="1">1</button>
-            <button class="button" value="2">2</button>
-            <button class="button" value="3">3</button>
+            <input type="text" id="display" disabled>
+            <button class="button" value="clear" id="clear">AC</button>
+            <button class="button" value="erase" id="erase">DEL</button>
+            <button class="button" value="percent" id="percent">&percnt;</button>
+            <button class="button" value="/">&divide;</button>
+            <button class="button" value="7">7</button>
+            <button class="button" value="8">8</button>
+            <button class="button" value="9">9</button>
+            <button class="button" value="*">&times;</button>
             <button class="button" value="4">4</button>
             <button class="button" value="5">5</button>
             <button class="button" value="6">6</button>
-            <button class="button" value="7">7</button>
-            <button class="button" value="8">8</button>
-            <button class="button" value="9">9</button><br>
-            <button class="button" value="+">&plus;</button>
             <button class="button" value="-">&minus;</button>
-            <button class="button" value="*">&times;</button>
-            <button class="button" value="/">&divide;</button>
-            <button class="button" value="=">&equals;</button>
+            <button class="button" value="1">1</button>
+            <button class="button" value="2">2</button>
+            <button class="button" value="3">3</button>
+            <button class="button" value="+">&plus;</button>
+            <button class="button" value="0" id="zero">0</button>
             <button class="button" value="." id="decimal">.</button>
-            <button class="button" value="clear" id="clear">AC</button>
-            <button class="button" value="erase">DEL</button>
+            <button class="button" value="=">&equals;</button>
     </main>
 
     <script src="script.js"></script>
