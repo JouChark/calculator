@@ -24,27 +24,31 @@ button.forEach((button) => {
         } else if (button.value === '=') {
             if (operator.length !== 0 && lastNumber.length !== 0) {
                 operate(operator)
-                operator = '1'
+                operator = ''
+                lastNumber = firstNumber
             } 
         } else if (button.value === 'clear') {
             clear()
         } else if (button.value === 'erase') {
             lastNumber = lastNumber.slice(0, - 1)
             display.placeholder = lastNumber
-        } else if (lastNumber.length < 7 &&
-            (lastNumber.indexOf('.') === -1 || lastNumber.indexOf('.') === lastNumber.length - 1)) {
+        } else if (button.value === '.') {
+            if (lastNumber.split('.').length > 1) {
+                decimal.setAttribute('disabled', 'disabled')
+            }
+            if (lastNumber.split('.').length === 1) {
+                decimal.removeAttribute('disabled')
+                lastNumber += button.value;
+                display.placeholder = lastNumber;
+            }
+        } else if (lastNumber.length < 7) {
             lastNumber += button.value;
             display.placeholder = lastNumber;
             if (lastNumber[0] === '0') {
                 lastNumber = 0
                 lastNumber = ''
             }
-            if (lastNumber.split('.').length > 1) {
-                decimal.setAttribute('disabled', 'disabled')
-            }
-            if (lastNumber.split('.').length === 1) {
-                decimal.removeAttribute('disabled')
-            }
+            
         }
     })
 })
@@ -66,34 +70,30 @@ function operate(value) {
 }
 
 function add(x, y) {
-    let result = x + y
-    firstNumber = result
+    let result = +(x + y).toFixed(3)
     display.placeholder = result
+    firstNumber = result
 }
 
 function subtract(x, y) {
-    let result = x - y
-    firstNumber = result
+    let result = +(x - y).toFixed(3)
     display.placeholder = result
+    firstNumber = result
 }
 
 function multiply(x, y) {
-    let result = x * y
-    firstNumber = result
+    let result = +(x * y).toFixed(3)
     display.placeholder = result
+    firstNumber = result
 }
 
 function divide(x, y) {
     if (y === 0) {
         display.placeholder = 'ERROR'
     } else {
-        let result = x / y
-        firstNumber = result
-        if (result.length > 11) {
-            display.placeholder = result.substring(0, 11)
-        } else {
-            display.placeholder = result
-        }
+        let result = +(x / y).toFixed(3)
+        display.placeholder = result
+        firstNumber = result 
     }
 }
 
