@@ -7,55 +7,72 @@ let lastNumber = '';
 let firstNumber;
 let secondNumber;
 
+    // Get values
 button.forEach((button) => {
     button.addEventListener('click', () => {
-        clearText.textContent = 'C'
-        if (button.value === '+' || button.value === '-' || 
-            button.value === '/' || button.value === '*') {
+        displayNumbers(button.value)
+    })
+})
+
+document.addEventListener('keydown', function(event) {
+    if (event.key >= 0 || event.key <= 9 || event.key === '.' || event.key === '=' ||
+        event.key === '+' ||  event.key === '-' || event.key === '*' || event.key === '/' ||
+        event.key === '%' || event.key === 'Backspace' || event.key === 'Escape') {
+            displayNumbers(event.key)
+        }
+    if (event.key === 'Enter') {
+            displayNumbers('=')
+    }
+})
+
+    // Display numbers and call operation functions
+function displayNumbers(value) {
+    clearText.textContent = 'C'
+        if (value === '+' || value === '-' || 
+            value === '/' || value === '*') {
             if (operator.length === 0) {
-                operator = button.value
+                operator = value
                 firstNumber = Number(lastNumber)
                 lastNumber = ''
             } else {
                 operate(operator)
-                operator = button.value
+                operator = value
                 lastNumber = ''
             }
-        } else if (button.value === '%') {
+        } else if (value === '%') {
             lastNumber /= 100
             display.placeholder = lastNumber;
-        } else if (button.value === '=') {
+        } else if (value === '=') {
             if (operator.length !== 0 && lastNumber.length !== 0) {
                 operate(operator)
                 operator = ''
                 lastNumber = firstNumber
             } 
-        } else if (button.value === 'clear') {
+        } else if (value === 'Escape') {
             clear()
-        } else if (button.value === 'erase') {
+        } else if (value === 'Backspace') {
             lastNumber = lastNumber.slice(0, - 1)
             display.placeholder = lastNumber
-        } else if (button.value === '.') {
+        } else if (value === '.') {
             if (lastNumber.split('.').length > 1) {
                 decimal.setAttribute('disabled', 'disabled')
             }
             if (lastNumber.split('.').length === 1) {
                 decimal.removeAttribute('disabled')
-                lastNumber += button.value;
+                lastNumber += value;
                 display.placeholder = lastNumber;
             }
         } else if (lastNumber.length < 7) {
-            lastNumber += button.value;
+            lastNumber += value;
             display.placeholder = lastNumber;
             if (lastNumber[0] === '0') {
                 lastNumber = 0
                 lastNumber = ''
             }
-            
         }
-    })
-})
+}
 
+    // Make calculations
 function operate(value) {
     secondNumber = Number(lastNumber)
     if (value == '+') {
@@ -100,6 +117,7 @@ function divide(x, y) {
     }
 }
 
+    // Reset calculator
 function clear() {
     operator = '';
     lastNumber = '';
