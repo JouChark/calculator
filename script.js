@@ -21,6 +21,9 @@ button.forEach((button) => {
                 operator = button.value
                 lastNumber = ''
             }
+        } else if (button.value === '%') {
+            lastNumber /= 100
+            display.placeholder = lastNumber;
         } else if (button.value === '=') {
             if (operator.length !== 0 && lastNumber.length !== 0) {
                 operate(operator)
