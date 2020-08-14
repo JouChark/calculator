@@ -3,7 +3,7 @@ body {
 }
 
 main {
-    background-color: #000000;
+    background-color: #413f4e;
     margin: 55px auto;
     width: 300px;
     height: 550px;
@@ -11,8 +11,8 @@ main {
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 150px repeat(5, 1fr);
     row-gap: 15px;
-    column-gap: 15px;
-    padding: 15px;
+    column-gap: 5px;
+    padding: 10px;
 }
 
 #display {
@@ -21,9 +21,10 @@ main {
     font-size: 31.5px;
     font-weight: 400;
     height: 95%;
-    width: 93.5%;
+    width: 91%;
     grid-column: 1/5;
     text-align: right;
+    margin: 5px;
 }
 
 #display::placeholder {
@@ -32,6 +33,19 @@ main {
 
 button {
     border-radius: 10px;
+    margin: 5px;
+    font-size: 25px;
+    box-shadow: 4px 4px #000000;
+}
+
+button.operator {
+    color: #ffffff;
+    background-color: #f18118;
+}
+
+button.operator:hover {
+    color: #000000;
+    background-color: #f18118;
 }
 
 button#zero {
@@ -45,4 +59,10 @@ button#decimal:disabled {
 button:hover {
     background-color: #000000;
     color: #ffffff;
+}
+
+button#erase {
+    font-size: 40px;
+    padding-bottom: 7px;
+    font-weight: 500;
 }
