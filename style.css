@@ -1,51 +1,68 @@
 body {
     background-color: #778899;
+    color: #000000;
 }
 
 main {
     background-color: #413f4e;
     margin: 55px auto;
     width: 300px;
-    height: 550px;
+    height: 530px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 150px repeat(5, 1fr);
+    grid-template-rows: 130px repeat(5, 1fr);
     row-gap: 15px;
     column-gap: 5px;
-    padding: 10px;
+    padding: 0 15px 25px 15px;
+    border-radius: 25px;
 }
 
 #display {
     font-family: 'Quantico', sans-serif;
-    color: #000000;
+    background-color: #ffffffd0;
     font-size: 31.5px;
     font-weight: 400;
-    height: 95%;
-    width: 91%;
+    height: 70%;
+    width: 92.5%;
     grid-column: 1/5;
     text-align: right;
-    margin: 5px;
+    margin: 30px 7px 25px 7px;
+    border-radius: 15px;
 }
 
 #display::placeholder {
-    opacity: 0.8;
+    color: #000000;
+    opacity: 1;
 }
 
 button {
     border-radius: 10px;
     margin: 5px;
     font-size: 25px;
-    box-shadow: 4px 4px #000000;
+    box-shadow: 5px 5px #000000;
+    background-color: #2dd8ca;
+}
+
+button:hover {
+    background-color: rgb(125, 250, 239);
+}
+
+button:focus {outline:0;}
+
+@-moz-document url-prefix() {
+    #erase {
+        font-size: 40px;
+        padding-bottom: 5px;
+    }
 }
 
 button.operator {
-    color: #ffffff;
+    color: #000000;
     background-color: #f18118;
 }
 
 button.operator:hover {
-    color: #000000;
-    background-color: #f18118;
+    background-color: #ffac4e;
 }
 
 button#zero {
@@ -54,15 +71,4 @@ button#zero {
 
 button#decimal:disabled {
     color: #000000;
-}
-
-button:hover {
-    background-color: #000000;
-    color: #ffffff;
-}
-
-button#erase {
-    font-size: 40px;
-    padding-bottom: 7px;
-    font-weight: 500;
 }

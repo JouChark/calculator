@@ -21,7 +21,7 @@ document.addEventListener('keydown', function(event) {
             displayNumbers(event.key)
         }
     if (event.key === 'Enter') {
-            displayNumbers('=')
+        displayNumbers('=')
     }
 })
 
