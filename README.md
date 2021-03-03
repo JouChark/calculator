@@ -1,4 +1,15 @@
 # Calculator
-An on-screen calculator project using JavaScript, HTML, and CSS for the [Odin Project curriculum](https://www.theodinproject.com/courses/web-development-101/lessons/calculator).
+An on-screen calculator.
 
-Can be seen [here](https://uauramenezes.github.io/calculator/)
+## Site
+It can be seen [here](https://uauramenezes.github.io/calculator/)
+
+## Built with
+* JavaScript
+* HTML
+* CSS
+
+## About
+The objective of this project was to improve the fundamentals of web development.
+
+It uses concepts like arrays, event listeners and the input data from the user, to perform elementary math calculations.
