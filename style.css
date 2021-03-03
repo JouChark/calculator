@@ -51,7 +51,7 @@ button:focus {outline:0;}
 
 @-moz-document url-prefix() {
     #erase {
-        font-size: 40px;
+        font-size: 30px;
         padding-bottom: 5px;
     }
 }
